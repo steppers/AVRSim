@@ -1,0 +1,24 @@
+gavrasm Gerd's AVR assembler version 3.4 (C)2014 by DG4FAC
+----------------------------------------------------------
+Source file: test.asm
+Hex file:    test.hex
+Eeprom file: test.eep
+Compiled:    01.09.2015, 00:02:27
+Pass:        2
+     1: .DEVICE ATmega328P
+     2: 
+     3: .org 0x0000
+     4: 
+     5: 000000   E207  LDI r16, 39
+     6: 000001   E51A  LDI r17, 90
+     7: 000002   1B10  SUB r17, r16
+     8: 000003   E624  LDI r18, 100
+     9: 000004   0F12  ADD r17, r18
+
+Program             :        5 words.
+Constants           :        0 words.
+Total program memory:        5 words.
+Eeprom space        :        0 bytes.
+Data segment        :        0 bytes.
+Compilation completed, no errors.
+Compilation endet 01.09.2015, 00:02:27

@@ -1,0 +1,9 @@
+.DEVICE ATmega328P
+
+.org 0x0000
+
+LDI r16, 39
+LDI r17, 90
+SUB r17, r16
+LDI r18, 100
+ADD r17, r18

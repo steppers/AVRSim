@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1441060264 source:/home/stepperz/AVR/AVRSim/src/flash.cpp
+	"flash.h"
+
+1441051113 /home/stepperz/AVR/AVRSim/include/flash.h
+	<stdint.h>
+
+1441061775 source:/home/stepperz/AVR/AVRSim/src/main.cpp
+	<iostream>
+	"program.h"
+	"mcu.h"
+
+1441061996 source:/home/stepperz/AVR/AVRSim/src/mcu.cpp
+	"mcu.h"
+
+1441057892 /home/stepperz/AVR/AVRSim/include/mcu.h
+	"memory.h"
+	"flash.h"
+
+1441035331 /home/stepperz/AVR/AVRSim/include/memory.h
+	<stdint.h>
+
+1441035866 source:/home/stepperz/AVR/AVRSim/src/memory.cpp
+	"memory.h"
+
+1441057419 source:/home/stepperz/AVR/AVRSim/src/program.cpp
+	"program.h"
+
+1441055158 /home/stepperz/AVR/AVRSim/include/program.h
+	<iostream>
+	<fstream>
+	<string>
+
