@@ -3,7 +3,7 @@
 MCU::MCU(uint16_t memSize, uint16_t flashSize)
 {
     _mem = new Memory(memSize);
-    _flash = new Flash(flashSize);
+    _flash = new Memory(flashSize);
 
     _maxPC = flashSize;
 }
@@ -12,12 +12,12 @@ void MCU::execute(int numInstr)
 {
     for(int i = 0; i < numInstr; i++)
     {
-        execute(_flash->get(_PC));
+        execute(_flash->getWord(_PC));
         incrPC();
     }
 }
 
-void MCU::loadProgramMem(uint16_t location, uint8_t* data, uint16_t length)
+void MCU::writeProgMem(uint16_t location, uint8_t* data, uint16_t length)
 {
     if(location + length <= _maxPC)
     {
@@ -37,15 +37,15 @@ void MCU::execute(uint16_t instr)
 
     if((instr & 0xfc00) == 0x0c00)
     {
-        uint8_t dst = _mem->get((instr&0x01f0)>>4);
-        uint8_t src = _mem->get(((instr&0x0200)>>5) | (instr&0x000f));
+        uint8_t dst = _mem->getByte((instr&0x01f0)>>4);
+        uint8_t src = _mem->getByte(((instr&0x0200)>>5) | (instr&0x000f));
         _mem->put((instr&0x01f0)>>4, src + dst);
     }
 
     if((instr & 0xfc00) == 0x1800)
     {
-        uint8_t dst = _mem->get((instr&0x01f0)>>4);
-        uint8_t src = _mem->get(((instr&0x0200)>>5) | (instr&0x000f));
+        uint8_t dst = _mem->getByte((instr&0x01f0)>>4);
+        uint8_t src = _mem->getByte(((instr&0x0200)>>5) | (instr&0x000f));
         _mem->put((instr&0x01f0)>>4, dst - src);
     }
 }
@@ -58,5 +58,5 @@ void MCU::incrPC()
 
 uint8_t MCU::getMem(uint16_t address)
 {
-    return _mem->get(address);
+    return _mem->getByte(address);
 }

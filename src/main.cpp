@@ -14,15 +14,13 @@ int main()
     char file[] = "test.hex";
     Program prog(file, FLASH_SIZE);
 
-    mcu.loadProgramMem((uint16_t)0x0000, prog.getArray(), (uint16_t)FLASH_SIZE);
+    mcu.writeProgMem((uint16_t)0x0000, prog.getArray(), (uint16_t)FLASH_SIZE);
     mcu.execute(10);
 
-    uint8_t* flash = prog.getArray();
-
+    //Print the register contents
     for(uint16_t i = 0; i < 32; i++)
     {
         cout << "r" << i << " = " << (int)mcu.getMem(i) << endl;
     }
-
     return 0;
 }

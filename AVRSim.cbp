@@ -37,11 +37,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/flash.h" />
+		<Unit filename="include/instructionset.h" />
 		<Unit filename="include/mcu.h" />
 		<Unit filename="include/memory.h" />
 		<Unit filename="include/program.h" />
-		<Unit filename="src/flash.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/mcu.cpp" />
 		<Unit filename="src/memory.cpp" />

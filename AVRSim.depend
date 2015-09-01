@@ -5,22 +5,21 @@
 1441051113 /home/stepperz/AVR/AVRSim/include/flash.h
 	<stdint.h>
 
-1441061775 source:/home/stepperz/AVR/AVRSim/src/main.cpp
+1441123988 source:/home/stepperz/AVR/AVRSim/src/main.cpp
 	<iostream>
 	"program.h"
 	"mcu.h"
 
-1441061996 source:/home/stepperz/AVR/AVRSim/src/mcu.cpp
+1441123786 source:/home/stepperz/AVR/AVRSim/src/mcu.cpp
 	"mcu.h"
 
-1441057892 /home/stepperz/AVR/AVRSim/include/mcu.h
+1441128545 /home/stepperz/AVR/AVRSim/include/mcu.h
 	"memory.h"
-	"flash.h"
 
-1441035331 /home/stepperz/AVR/AVRSim/include/memory.h
+1441117981 /home/stepperz/AVR/AVRSim/include/memory.h
 	<stdint.h>
 
-1441035866 source:/home/stepperz/AVR/AVRSim/src/memory.cpp
+1441117910 source:/home/stepperz/AVR/AVRSim/src/memory.cpp
 	"memory.h"
 
 1441057419 source:/home/stepperz/AVR/AVRSim/src/program.cpp
@@ -30,4 +29,13 @@
 	<iostream>
 	<fstream>
 	<string>
+
+1441110602 source:/home/stepperz/AVR/AVRSim/src/instruction.cpp
+	"instruction.h"
+
+1441113253 /home/stepperz/AVR/AVRSim/include/instruction.h
+	<stdint.h>
+
+1441117477 /home/stepperz/AVR/AVRSim/include/instructionset.h
+	<vector>
 
