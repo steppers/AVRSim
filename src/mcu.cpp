@@ -30,23 +30,25 @@ void MCU::writeProgMem(uint16_t location, uint8_t* data, uint16_t length)
 
 void MCU::execute(uint16_t instr)
 {
-    if((instr & 0xf000) == 0xe000)
-    {
-        _mem->put(((instr>>4) & 0x000f)+16, ((instr>>4)&0x00f0)|(instr & 0x000f));
-    }
+    uint8_t dst;
+    uint8_t src;
 
-    if((instr & 0xfc00) == 0x0c00)
+    int i = decode(instr);
+    switch(i)
     {
-        uint8_t dst = _mem->getByte((instr&0x01f0)>>4);
-        uint8_t src = _mem->getByte(((instr&0x0200)>>5) | (instr&0x000f));
-        _mem->put((instr&0x01f0)>>4, src + dst);
-    }
-
-    if((instr & 0xfc00) == 0x1800)
-    {
-        uint8_t dst = _mem->getByte((instr&0x01f0)>>4);
-        uint8_t src = _mem->getByte(((instr&0x0200)>>5) | (instr&0x000f));
-        _mem->put((instr&0x01f0)>>4, dst - src);
+        case LDI:
+            _mem->put(((instr>>4) & 0x000f)+16, ((instr>>4)&0x00f0)|(instr & 0x000f));
+            break;
+        case ADD:
+            dst = _mem->getByte((instr&0x01f0)>>4);
+            src = _mem->getByte(((instr&0x0200)>>5) | (instr&0x000f));
+            _mem->put((instr&0x01f0)>>4, src + dst);
+            break;
+        case SUB:
+            dst = _mem->getByte((instr&0x01f0)>>4);
+            src = _mem->getByte(((instr&0x0200)>>5) | (instr&0x000f));
+            _mem->put((instr&0x01f0)>>4, dst - src);
+            break;
     }
 }
 

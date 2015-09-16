@@ -24,3 +24,9 @@ void Memory::put(uint16_t address, uint8_t data)
 {
     _data[address] = data;
 }
+
+void Memory::putWord(uint16_t address, uint16_t word)
+{
+    _data[address++] = (uint8_t)(word & 0xff);
+    _data[address] = (uint8_t)((word >> 8) & 0xff);
+}

@@ -2,8 +2,7 @@
 #define MCU_H
 
 #include "memory.h"
-
-
+#include "instructionset.h"
 
 class MCU
 {
